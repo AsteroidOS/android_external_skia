@@ -268,7 +268,6 @@ public:
     void getBounds(SkRect* bounds) const;
     void getBounds(SkIRect* bounds) const;
 
-#ifdef SK_SUPPORT_LEGACY_SETCONFIG
     /** Set the bitmap's config and dimensions. If rowBytes is 0, then
         ComputeRowBytes() is called to compute the optimal value. This resets
         any pixel/colortable ownership, just like reset().
@@ -279,15 +278,12 @@ public:
         return this->setConfig(config, width, height, rowBytes,
                                kPremul_SkAlphaType);
     }
-#endif
 
     bool setInfo(const SkImageInfo&, size_t rowBytes = 0);
 
-#ifdef SK_SUPPORT_LEGACY_SETCONFIG_INFO
     bool setConfig(const SkImageInfo& info, size_t rowBytes = 0) {
         return this->setInfo(info, rowBytes);
     }
-#endif
 
     /**
      *  Allocate a pixelref to match the specified image info. If the Factory
